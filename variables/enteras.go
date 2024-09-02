@@ -2,6 +2,7 @@ package variables
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -25,7 +26,7 @@ const (
 var estado bool = false
 var sueldo float32 = 100000
 
-func MostrarEnteros() {
+func MostrarVariables() {
 	// Variables
 	var intcomun int
 	var fecha = time.Now()
@@ -51,5 +52,45 @@ func MostrarEnteros() {
 	// Constantes
 	fmt.Println("PI =", Pi)
 	fmt.Println("Virenes =", Virenes)
+	// Tipos de datos básicos
+	var entero int = 42
+	var flotante float64 = 3.14
+	var booleano bool = true
+	var caracter rune = 'A'
+	var cadena string = "Hola, Go!"
 
+	// Tipos de datos compuestos
+	var arreglo [3]int = [3]int{1, 2, 3}
+	var slice []string = []string{"Go", "es", "genial"}
+	var mapa map[string]int = map[string]int{"uno": 1, "dos": 2, "tres": 3}
+
+	// Tipo struct
+	type Persona struct {
+		nombre string
+		edad   int
+	}
+	var persona Persona = Persona{nombre: "Juan", edad: 30}
+
+	// Tipo puntero
+	var puntero *int = &entero
+
+	// Impresión en consola de los tipos de datos
+	fmt.Println("Entero:", entero)
+	fmt.Println("Flotante:", flotante)
+	fmt.Println("Booleano:", booleano)
+	fmt.Println("Caracter:", string(caracter))
+	fmt.Println("Cadena:", cadena)
+
+	fmt.Println("Arreglo:", arreglo)
+	fmt.Println("Slice:", slice)
+	fmt.Println("Mapa:", mapa)
+
+	fmt.Println("Struct Persona:", persona)
+	fmt.Printf("Puntero (dirección de memoria): %p, Valor apuntado: %d\n", puntero, *puntero)
+
+}
+func ConverToText(numero int) (bool, string) {
+
+	texto := strconv.Itoa(numero)
+	return true, texto
 }
